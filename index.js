@@ -6,6 +6,11 @@ app.get('/', (req, res) => {
   res.send('Server is runnning fine!')
 })
 
+
+  app.get('/hello',(req, res)=>{
+    res.send('HOW Are you!');
+
+  })
 app.listen(port, () => {
   console.log(`Server  is listening on port ${port}`)
 })
