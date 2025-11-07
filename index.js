@@ -36,6 +36,18 @@ async function run() {
   try {
   
     await client.connect();
+    const db=client.db('modal-db')
+    const modalCollection=db.collection('modals')
+
+    app.get('/modals',async(req,res)=>{
+
+      const result= await modalCollection.find().toArray()
+
+      //console.log(result)
+      res.send(result);
+
+
+    })
     
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
